@@ -32,7 +32,7 @@ class stack{
 		int evenElements();
 		int SumEvenOdd(int *s1, int *s2);
 		void StackEquals(stack *l1, stack *l2);
-		int EvenElements(int qtd, int *pt);
+		int EvenElements(int qtd, int *pt); // para que a função retorne um ponteiro de arrays ela precisa ser do tipo int * //
 		int QttEven(){
 			node *tmp = head;
 			int qtt = 0;
