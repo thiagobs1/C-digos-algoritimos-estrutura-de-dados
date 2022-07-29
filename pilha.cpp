@@ -32,7 +32,7 @@ class stack{
 		int evenElements();
 		int SumEvenOdd(int *s1, int *s2);
 		void StackEquals(stack *l1, stack *l2);
-		int EvenElements(int qtd, int *pt); // para que a função retorne um ponteiro de arrays ela precisa ser do tipo int * //
+		int *EvenElements(int qtd); // para que a função retorne um ponteiro de arrays ela precisa ser do tipo int * //
 		int QttEven(){
 			node *tmp = head;
 			int qtt = 0;
@@ -127,8 +127,23 @@ void stack::StackEquals(stack *l1, stack *l2){
 	}
 }
 
-int stack::EvenElements(int qtd, int *pt){
+//int stack::EvenElements(int qtd, int *pt){
+//	int i = 0;
+//	node *tmp = head;
+//	while(tmp != NULL){
+//		if(tmp->info % 2 == 0){
+//			*(pt+i) = tmp->info;
+//			i++;
+//		}
+//	    
+//		tmp = tmp->next;
+//	}
+// // como retornar esse ponteiro?
+//}
+
+int *stack::EvenElements(int qtd){
 	int i = 0;
+	int *pt = new int(qtd);
 	node *tmp = head;
 	while(tmp != NULL){
 		if(tmp->info % 2 == 0){
@@ -138,7 +153,7 @@ int stack::EvenElements(int qtd, int *pt){
 	    
 		tmp = tmp->next;
 	}
- // como retornar esse ponteiro?
+ return pt;// como retornar esse ponteiro?
 }
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
@@ -163,14 +178,13 @@ int main(int argc, char** argv) {
 	int quantidade = s1.evenElements();
 	cout << "quantidade: "<<quantidade;
 	
-	int *even = new int(quantidade);
-	int *v = even;
-	s1.EvenElements(quantidade, v);
+	
+	int *v = s1.EvenElements(quantidade); 
 	while(i < quantidade){
 		cout << "\nElemento par:" << *(v+i);
 		i++;
 	}
-//	delete v;
+	delete v;
 	s1.StackEquals(&s1, &s2);
 	
 	s1.printStack();
