@@ -53,8 +53,6 @@ class lista{
 					l1.addToTail(tmp->info); // o valor do head de l2 será adicionado a tail de l1
 					tmp = tmp->next; // tmp recebe o proximo elemento da lista 2 e vai adicionar ao tail de l1
 					i++;
-					
-					
 				}
 				
 			}
